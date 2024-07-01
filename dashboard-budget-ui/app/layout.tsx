@@ -16,8 +16,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={montserrat.className}>
+    <html lang="en" className="antialiased w-full h-full">
+      <body className={`${montserrat.className} text-slate-100 bg-slate-900`}>
         <SideBar />
         {children}
       </body>

@@ -67,13 +67,10 @@
 }
 
 @layer base {
-  * {
-    @apply border-border;
-  }
-
   body {
-    @apply bg-background text-foreground;
     display: flex;
     flex-direction: row;
+    width: 100%;
+    height: 100%;
   }
 }
