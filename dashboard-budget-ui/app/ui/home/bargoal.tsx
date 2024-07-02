@@ -2,7 +2,11 @@
 
 import { Card, ProgressBar } from '@tremor/react';
 
-export function ProgressBarUsageExample() {
+export default function ProgressGoalBar({ period }: { period: string }) {
+
+  // Realizar peticion en base al periodo
+  // Realizar la peticion por separada para que no afecte a los otros componentes
+
   return (
     <>
       <Card className="mx-auto max-w-sm opacity-60 hover:opacity-100 transition-opacity">

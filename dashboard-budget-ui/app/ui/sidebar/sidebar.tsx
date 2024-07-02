@@ -1,5 +1,6 @@
 import { MENU_OPTIONS } from "@/app/lib/utils";
 import MenuButton from "./menuoption";
+import Avatar from "./avatar";
 
 export default function SideBar(){
 
@@ -8,10 +9,10 @@ export default function SideBar(){
 
   return (
     <div className="relative">
-      <section className="text-slate-100 bg-slate-900 w-72 h-full py-2 px-3 grid content-between fixed top-0">
+      <section className="text-slate-100 bg-slate-900 w-72 h-full py-3 px-3 grid content-between fixed top-0">
         <div>
-          <div>LOGO</div>
-          <div className="mt-9 flex flex-col space-y-1">
+          <Avatar />
+          <div className="mt-20 flex flex-col space-y-1">
             {
               mainBlock.map(({ route, href }) => {
                 return (

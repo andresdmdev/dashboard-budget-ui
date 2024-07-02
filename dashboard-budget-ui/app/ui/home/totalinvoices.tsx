@@ -28,7 +28,7 @@ export default function CardDashboard({value, diference, timeSearched, title, su
   // changeType
 
   return (
-    <Card>
+    <Card decoration="top" decorationColor="indigo" className='opacity-100 hover:opacity-80 transition-opacity'>
       <p className="text-tremor-default font-medium text-tremor-content dark:text-dark-tremor-content">
         {title}
       </p>

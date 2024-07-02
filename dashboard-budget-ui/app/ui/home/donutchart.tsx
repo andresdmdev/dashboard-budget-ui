@@ -4,40 +4,33 @@ import { DonutChart } from '@tremor/react';
 
 const datahero = [
   {
-    name: 'Noche Holding AG',
+    name: 'Invoices',
     value: 9800,
   },
   {
-    name: 'Rain Drop AG',
+    name: 'Spendings',
     value: 4567,
   },
   {
-    name: 'Push Rail AG',
+    name: 'Savings',
     value: 3908,
-  },
-  {
-    name: 'Flow Steal AG',
-    value: 2400,
-  },
-  {
-    name: 'Tiny Loop Inc.',
-    value: 2174,
-  },
-  {
-    name: 'Anton Resorts Holding',
-    value: 1398,
-  },
+  }
 ];
 
 const dataFormatter = (number: number) =>
   `$ ${Intl.NumberFormat('us').format(number).toString()}`;
 
-export const DonutChartHero = () => (
+export default function ExpensesDonutChart({ period }: { period: string }){
+
+  // Realiza peticion en base al periodo
+  // Realizar una consulta teniendo en cuenta el periodo
+
+ return (
   <>
     <div className="mx-auto space-y-12 mt-8">
       <div className="space-y-3">
         <span className="text-center block font-mono text-tremor-default text-tremor-content dark:text-dark-tremor-content">
-          Total Invoices hola lkdjflk
+          Total Expenses
         </span>
         <div className="flex justify-center">
           <DonutChart
@@ -45,9 +38,11 @@ export const DonutChartHero = () => (
             variant="donut"
             valueFormatter={dataFormatter}
             onValueChange={(v) => console.log(v)}
+            className='w-80'
           />
         </div>
       </div>
     </div>
   </>
-);
+ )
+}

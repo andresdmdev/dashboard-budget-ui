@@ -1,6 +1,10 @@
 import { Card, CategoryBar } from '@tremor/react';
 
-export function CategoryBarUsageExample() {
+export default function RiskStatusBar({ period }: { period: string }) {
+
+  // Realizar peticion en base al periodo
+  // Y que la consulta no afecte a los demas componentes.
+
   return (
     <>
       <Card className="mx-auto max-w-sm opacity-60 hover:opacity-100 transition-opacity">
