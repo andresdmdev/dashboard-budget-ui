@@ -28,6 +28,17 @@ const summary = [
     changeType: 'positive',
   },
   {
+    name: 'Invoices',
+    value: '$21,349.36',
+    invested: '$19,698.65',
+    cashflow: '$14,033.74',
+    gain: '+$11,012.39',
+    realized: '+$177.48',
+    dividends: '+$490.97',
+    bgColor: 'bg-blue-500',
+    changeType: 'positive',
+  },
+  {
     name: 'Savings',
     value: '$9,443.46',
     invested: '$14,698.65',
@@ -37,6 +48,17 @@ const summary = [
     dividends: '-$990.97',
     bgColor: 'bg-fuchsia-500',
     changeType: 'negative',
+  },
+  {
+    name: 'Invoices',
+    value: '$21,349.36',
+    invested: '$19,698.65',
+    cashflow: '$14,033.74',
+    gain: '+$11,012.39',
+    realized: '+$177.48',
+    dividends: '+$490.97',
+    bgColor: 'bg-blue-500',
+    changeType: 'positive',
   },
 ];
 

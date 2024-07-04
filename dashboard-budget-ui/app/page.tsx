@@ -1,6 +1,6 @@
 import { Suspense } from "react";
 import SectionCards from "./ui/home/sectionCards";
-import SelectPeriod from "./ui/home/selectPeriod";
+import SelectPeriod from "./ui/common/selectPeriod";
 import { PERIOD_TIME } from "./lib/utils";
 import { Metadata } from 'next';
 import SumaryGraph from "./ui/home/areachart";

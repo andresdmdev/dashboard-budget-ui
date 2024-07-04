@@ -1,13 +1,6 @@
 "use client";
 
 import { Select, SelectItem } from "@tremor/react";
-/* import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select" */
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { FormEvent } from "react";
 import * as React from "react"
@@ -30,18 +23,6 @@ export default function SelectPeriod({ periods }: { periods: string[] }){
 
   return (
     <>
-      {/* <Select defaultValue="Week" onValueChange={(e) => selectPeriodTime(e)}>
-        <SelectTrigger className="w-[180px]">
-          <SelectValue placeholder="Period" />
-        </SelectTrigger>
-        <SelectContent>
-          {
-            periods.map(p => (
-              <SelectItem value={p} key={p}>{p}</SelectItem>
-            ))
-          }
-        </SelectContent>
-      </Select> */}
       <Select defaultValue={defaultValue} onValueChange={(e) => selectPeriodTime(e)} className="w-7">
         {
             periods.map(p => (
