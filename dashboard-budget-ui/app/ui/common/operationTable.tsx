@@ -84,7 +84,7 @@ export default function OperationTable({
 
   return (
     <>
-      <Table>
+      <Table className='mt-5'>
         <TableHead>
           {table.getHeaderGroups().map((headerGroup) => (
             <TableRow
@@ -148,11 +148,11 @@ export default function OperationTable({
         </TableHead>
         <TableBody>
           {table.getRowModel().rows.map((row) => (
-            <TableRow key={row.id} onClick={() => handleDialogState(row.getVisibleCells())} className='cursor-pointer'>
+            <TableRow key={row.id} onClick={() => handleDialogState(row.getVisibleCells())} className='cursor-pointer hover:text-slate-200 transition-colors'>
               {row.getVisibleCells().map((cell) => (
                 <TableCell
                   key={cell.id}
-                  className={classNames(cell.column.columnDef.meta.align)}
+                  className={classNames(cell.column.columnDef.meta?.align)}
                 >
                   {flexRender(cell.column.columnDef.cell, cell.getContext())}
                 </TableCell>
@@ -172,9 +172,42 @@ export default function OperationTable({
           <p>{data.workspace?.owner ?? "No workspace"}</p>
           <p>{data.workspace?.status ?? "No workspace"}</p>
           <p>{data.workspace?.costs ?? "No workspace"}</p>
-          <Button className="mt-8 w-full" onClick={() => handleCloseDialogState()}>
-            Got it!
-          </Button>
+          <h3 className="text-lg font-semibold text-tremor-content-strong dark:text-dark-tremor-content-strong">Account Created Successfully</h3>
+          <p className="mt-2 leading-6 text-tremor-default text-tremor-content dark:text-dark-tremor-content">
+            Your account has been created successfully. You can now login to your
+            account. For more information, please contact us.
+          </p>
+          <p>{data.workspace?.workspace ?? "No workspace"}</p>
+          <p>{data.workspace?.owner ?? "No workspace"}</p>
+          <p>{data.workspace?.status ?? "No workspace"}</p>
+          <p>{data.workspace?.costs ?? "No workspace"}</p>
+          <h3 className="text-lg font-semibold text-tremor-content-strong dark:text-dark-tremor-content-strong">Account Created Successfully</h3>
+          <p className="mt-2 leading-6 text-tremor-default text-tremor-content dark:text-dark-tremor-content">
+            Your account has been created successfully. You can now login to your
+            account. For more information, please contact us.
+          </p>
+          <p>{data.workspace?.workspace ?? "No workspace"}</p>
+          <p>{data.workspace?.owner ?? "No workspace"}</p>
+          <p>{data.workspace?.status ?? "No workspace"}</p>
+          <p>{data.workspace?.costs ?? "No workspace"}</p>
+          <h3 className="text-lg font-semibold text-tremor-content-strong dark:text-dark-tremor-content-strong">Account Created Successfully</h3>
+          <p className="mt-2 leading-6 text-tremor-default text-tremor-content dark:text-dark-tremor-content">
+            Your account has been created successfully. You can now login to your
+            account. For more information, please contact us.
+          </p>
+          <p>{data.workspace?.workspace ?? "No workspace"}</p>
+          <p>{data.workspace?.owner ?? "No workspace"}</p>
+          <p>{data.workspace?.status ?? "No workspace"}</p>
+          <p>{data.workspace?.costs ?? "No workspace"}</p>
+          
+          <div className='flex items-center justify-end gap-3'>
+            <Button className="mt-8 w-[100px]" onClick={() => handleCloseDialogState()}>
+              Edit!
+            </Button>
+            <Button className="mt-8 w-[100px]" color='red'>
+              Delete!
+            </Button>
+          </div>
         </DialogPanel>
       </Dialog>
     </>

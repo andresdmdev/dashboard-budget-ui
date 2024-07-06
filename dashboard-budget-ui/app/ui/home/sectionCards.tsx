@@ -10,10 +10,10 @@ export default function SectionCards({period}:{period: string}){
 
   return (
     <>
-      <CardDashboard value="" diference="" timeSearched={`from last ${period}`} title="Total Invoices" subTitle={period}  />
-      <CardDashboard value="" diference="" timeSearched={`from last ${period}`} title="Total Spends" subTitle={period} />
-      <CardDashboard value="" diference="" timeSearched={`from last ${period}`} title="Total Earnings" subTitle={period} />
-      <CardDashboard value="" diference="" timeSearched={`from last ${period}`} title="Total Savings" subTitle={period} />
+      <CardDashboard value="" diference="" timeSearched={`from last ${period}`} title="Total Invoices" subTitle={period.toString()}  />
+      <CardDashboard value="" diference="" timeSearched={`from last ${period}`} title="Total Spends" subTitle={period.toString()} />
+      <CardDashboard value="" diference="" timeSearched={`from last ${period}`} title="Total Earnings" subTitle={period.toString()} />
+      <CardDashboard value="" diference="" timeSearched={`from last ${period}`} title="Total Savings" subTitle={period.toString()} />
      </>
   )
 }

@@ -7,8 +7,6 @@ import {
 } from "react-icons/ri";
 
 
-export const PERIOD_TIME = ["Week", "Month", "Year"]
-
 export const MENU_OPTIONS = [
   { route: 'Home', href: '/', icon: RiHome3Line },
   { route: 'Earnings', href: '/earnings', icon: RiNumbersLine },

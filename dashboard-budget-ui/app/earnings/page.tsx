@@ -1,3 +1,7 @@
+import { BarGoal } from '../ui/common/barGoal';
+import CategoryBars from '../ui/common/categoryHorizontalBars';
+import { BarChartHero } from '../ui/common/dataBarChart';
+import DateRangePeriod from '../ui/common/datePicker';
 import OperationTable from '../ui/common/operationTable';
 
 const workspaces = [
@@ -143,11 +147,33 @@ const workspacesColumns = [
   },
 ];
 
-export default function EarningPage() {
+export default function EarningPage(
+  {
+    searchParams,
+  }: {
+    searchParams?: {
+      period?: string;
+    };
+  }
+) {
+
+  let periodTime = searchParams?.period || 7;
 
   return (
-    <>
+    <div>
+      <section className='flex flex-row gap-7 items-end justify-between'>
+        <div className='flex flex-col gap-7'>
+          <DateRangePeriod />
+          <div className='max-w-3xl'>
+            <CategoryBars />
+          </div>
+        </div>
+        <BarChartHero />
+        <div className='flex flex-row gap-7 max-w-3xl'>
+          <BarGoal />
+        </div>
+      </section>
       <OperationTable workspaces={workspaces} workspacesColumns={workspacesColumns} />
-    </>
+    </div>
   );
 }

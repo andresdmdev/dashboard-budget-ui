@@ -1,13 +1,13 @@
 import { Suspense } from "react";
 import SectionCards from "./ui/home/sectionCards";
 import SelectPeriod from "./ui/common/selectPeriod";
-import { PERIOD_TIME } from "./lib/utils";
 import { Metadata } from 'next';
 import SumaryGraph from "./ui/home/areachart";
 import RiskStatusBar  from "./ui/home/warningrangebar";
 import ProgressGoalBar from "./ui/home/bargoal";
 import LastInvoices from "./ui/home/lastInvoices";
 import ExpensesDonutChart from "./ui/home/donutchart";
+import DateRangePeriod from "./ui/common/datePicker";
 
 export const metadata: Metadata = {
   title: 'Home',
@@ -21,11 +21,11 @@ export default function Page({
   };
 }) {
 
-  let periodTime = searchParams?.period || 'Week';
+  let periodTime = searchParams?.period || "7";
 
   return (
     <main className="px-7 pt-10 ml-72 flex flex-col gap-6 w-full text-slate-100 bg-slate-900">
-      <SelectPeriod periods={PERIOD_TIME} />
+      <DateRangePeriod />
       <section className="grid grid-rows-4 sm:grid-rows-2 lg:grid-rows-1 grid-flow-col gap-4 border-gray-400 border-solid">
         <Suspense fallback={"Loading..."}>
           <SectionCards period={periodTime} />
