@@ -1,6 +1,6 @@
 import { BarGoal } from '../ui/common/barGoal';
 import CategoryBars from '../ui/common/categoryHorizontalBars';
-import { BarChartHero } from '../ui/common/dataBarChart';
+import BarChartExtraInfo from '../ui/common/dataBarChart';
 import DateRangePeriod from '../ui/common/datePicker';
 import OperationTable from '../ui/common/operationTable';
 
@@ -147,6 +147,61 @@ const workspacesColumns = [
   },
 ];
 
+const fieldOperationData = [
+  {
+    name: 'Shooping',
+    value: 456,
+  },
+  {
+    name: 'Investment',
+    value: 351,
+  },
+  {
+    name: 'Education',
+    value: 271,
+  },
+  {
+    name: 'Other',
+    value: 191,
+  }
+];
+
+interface SpeciesInfo {
+  name: string;
+  [key: string]: string | number;
+}
+
+const barChartExtraInfo: SpeciesInfo[] = [
+  {
+    name: 'Amphibians',
+    'Hola mundo': 2488,
+  },
+  {
+    name: 'Birds',
+    'Pruyeba dkj': 1445,
+  },
+  {
+    name: 'Crustaceans',
+    'try dl': 743,
+  },
+  {
+    name: 'Ferns',
+    'Number of threatened species': 281,
+  },
+  {
+    name: 'Arachnids',
+    'Number of threatened species': 251,
+  },
+  {
+    name: 'Corals',
+    'Number of threatened species': 232,
+  },
+  {
+    name: 'Algae',
+    'Number of threatened species': 98,
+  },
+];
+
 export default function Reports(
   {
     searchParams,
@@ -165,10 +220,10 @@ export default function Reports(
         <div className='flex flex-col gap-7'>
           <DateRangePeriod />
           <div className='max-w-3xl'>
-            <CategoryBars />
+            <CategoryBars data={fieldOperationData} />
           </div>
         </div>
-        <BarChartHero />
+        <BarChartExtraInfo data={barChartExtraInfo} />
         <div className='flex flex-row gap-7 max-w-3xl'>
           <BarGoal />
         </div>
