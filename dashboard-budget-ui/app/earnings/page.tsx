@@ -1,3 +1,4 @@
+import { SpeciesInfo } from '../lib/types';
 import { BarGoal } from '../ui/common/barGoal';
 import CategoryBars from '../ui/common/categoryHorizontalBars';
 import BarChartExtraInfo from '../ui/common/dataBarChart';
@@ -166,39 +167,48 @@ const fieldOperationData = [
   }
 ];
 
-interface SpeciesInfo {
-  name: string;
-  [key: string]: string | number;
-}
-
 const barChartExtraInfo: SpeciesInfo[] = [
   {
     name: 'Amphibians',
-    'Hola mundo': 2488,
+    value: 2488,
+    category: 'Shopping',
+    barColor: 'blue'
   },
   {
     name: 'Birds',
-    'Pruyeba dkj': 1445,
+    value: 1445,
+    category: 'Shopping',
+    barColor: 'blue'
   },
   {
     name: 'Crustaceans',
-    'try dl': 743,
+    value: 743,
+    category: 'Investment',
+    barColor: 'green'
   },
   {
     name: 'Ferns',
-    'Number of threatened species': 281,
+    value: 281,
+    category: 'Education',
+    barColor: 'red'
   },
   {
     name: 'Arachnids',
-    'Number of threatened species': 251,
+    value: 251,
+    category: 'Education',
+    barColor: 'red'
   },
   {
     name: 'Corals',
-    'Number of threatened species': 232,
+    value: 232,
+    category: 'Shopping',
+    barColor: 'blue'
   },
   {
     name: 'Algae',
-    'Number of threatened species': 98,
+    value: 98,
+    category: 'Education',
+    barColor: 'red'
   },
 ];
 
@@ -213,6 +223,12 @@ export default function EarningPage(
 ) {
 
   let periodTime = searchParams?.period || 7;
+
+  // Hacer consultas a la api para los siguientes objetos.
+  // workspaces
+  // workspacesColumns
+  // fieldOperationData
+  // barChartExtraInfo
 
   return (
     <div>
