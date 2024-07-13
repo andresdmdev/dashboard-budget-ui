@@ -1,29 +1,29 @@
 "use client"
 
-import { Card, DeltaBar, ProgressBar } from '@tremor/react';
+import { DataGoalBars } from '@/app/lib/types';
+import { Card, ProgressBar } from '@tremor/react';
 
-export function BarGoal() {
+export function BarGoal({
+  data
+}: {
+  data: any[];
+}) {
   return (
     <>
       <Card className="mx-auto w-96 h-72">
-        <p className="text-tremor-default text-tremor-content dark:text-dark-tremor-content flex items-center justify-between">
-          <span>$9,012 &bull; 45%</span>
-          <span>$20,000</span>
-        </p>
-        <ProgressBar value={45} color="teal" className="mt-3" />
-        <p className="mt-10 text-tremor-default text-tremor-content dark:text-dark-tremor-content flex items-center justify-between">
-          <span>$9,012 &bull; 45%</span>
-          <span>$20,000</span>
-        </p>
-        <ProgressBar value={45} color="teal" className="mt-3" />
-        <p className="mt-10 text-tremor-default text-tremor-content dark:text-dark-tremor-content flex items-center justify-between">
-          <span>$9,012 &bull; 45%</span>
-          <span>$20,000</span>
-        </p>
-        <div className="space-y-3">
-          <p className="text-center font-mono text-sm text-slate-500">DeltaBar</p>
-          <DeltaBar value={50} isIncreasePositive={true} />
-        </div>
+        <h3 className="text-tremor-title text-tremor-content-strong dark:text-dark-tremor-content-strong font-medium">Goals</h3>
+        {
+          data.map(item => (
+            <>
+              <p className="mt-7 text-tremor-default text-tremor-content dark:text-dark-tremor-content flex items-center justify-between">
+                <span className="font-semibold text-slate-300">${item.value} &bull; {item.percentage}%</span>
+                <span className="text-orange-200">{item.title}</span>
+                <span className='text-slate-300'>${item.goal}</span>
+              </p>
+              <ProgressBar value={item.percentage} color="teal" className="mt-3" />
+            </>
+          ))
+        }
       </Card>
     </>
   );

@@ -8,15 +8,16 @@ const dataFormatter = (number: number) =>
 
 export default function BarChartExtraInfo({ data }: { data: SpeciesInfo[] }) {
 
-  const categories = data.reduce((result, item) => {
-    if(!result.includes(item.category)){
-      result.push(item.category)
-    }
-    return result;
-  }, []);
+  const categories = data[0].categories;
+  const barColors = data[0].barColor;
 
-  const newData = data.map(item =>  { return { name: item.name, [item.category]: item.value } })
-  const categoryColors = categories.map(item => { return data.find(e => e.category == item)?.barColor ?? 'red' })
+  const newData = data.map(item => {
+    const combinedObject = item.info.reduce((acc, curr) => {
+      return { ...acc, [curr.name]: curr.value };
+    }, {});
+    
+    return { name: item.name, ...combinedObject };
+  });
 
   return (
     <div className='w-[600px]'>
@@ -24,7 +25,7 @@ export default function BarChartExtraInfo({ data }: { data: SpeciesInfo[] }) {
         data={newData}
         index="name"
         categories={categories}
-        colors={categoryColors}
+        colors={barColors}
         valueFormatter={dataFormatter}
         yAxisWidth={48}
       />

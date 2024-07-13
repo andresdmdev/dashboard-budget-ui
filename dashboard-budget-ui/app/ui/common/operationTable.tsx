@@ -1,6 +1,7 @@
 
 "use client"
 
+import { TableOperation } from '@/app/lib/types';
 import {
   flexRender,
   getCoreRowModel,
@@ -8,9 +9,6 @@ import {
   useReactTable,
 } from '@tanstack/react-table';
 import {
-  Button,
-  Dialog,
-  DialogPanel,
   Table,
   TableBody,
   TableCell,
@@ -19,66 +17,43 @@ import {
   TableRow,
 } from '@tremor/react';
 import React from 'react';
+import DialogPanelOperationRow from './tableDialog';
   
-function classNames(...classes) {
+function classNames(...classes: any[]) {
   return classes.filter(Boolean).join(' ');
 }
 
 export default function OperationTable({
-  workspaces,
-  workspacesColumns
+  tableOperation
 }: {
-  workspaces: {
-    workspace: string;
-    owner: string;
-    status: string;
-    costs: string;
-    region: string;
-    capacity: string;
-    lastEdited: string;
-  }[],
-  workspacesColumns: {
-    header: string;
-    accessorKey: string;
-    enableSorting: boolean;
-    meta: {
-        align: string;
-    };
-  }[]
+  tableOperation: TableOperation
 }) {
   const [data, setData] = React.useState({
     isOpen: false,
-    workspace: null,
+    tableOperationRow: null,
   });
 
   const handleDialogState = (row: any) => {
     setData({
       isOpen: !data.isOpen, 
-      workspace: row[0].row.original
+      tableOperationRow: row[0].row.original
     });
-    
-    console.log(data)
   }
 
   const handleCloseDialogState = () => {
     setData({
       isOpen: !data.isOpen,
-      workspace: data.workspace
+      tableOperationRow: data.tableOperationRow
     })
   }
 
   const table = useReactTable({
-    data: workspaces,
-    columns: workspacesColumns,
+    data: tableOperation.fields,
+    columns: tableOperation.columns,
     getCoreRowModel: getCoreRowModel(),
     getSortedRowModel: getSortedRowModel(),
     initialState: {
-      sorting: [
-        {
-          id: 'workspace',
-          desc: false,
-        },
-      ],
+      sorting: [],
     },
   });
 
@@ -161,55 +136,7 @@ export default function OperationTable({
           ))}
         </TableBody>
       </Table>
-      <Dialog open={data.isOpen} onClose={() => handleCloseDialogState()} static={true}>
-        <DialogPanel>
-          <h3 className="text-lg font-semibold text-tremor-content-strong dark:text-dark-tremor-content-strong">Account Created Successfully</h3>
-          <p className="mt-2 leading-6 text-tremor-default text-tremor-content dark:text-dark-tremor-content">
-            Your account has been created successfully. You can now login to your
-            account. For more information, please contact us.
-          </p>
-          <p>{data.workspace?.workspace ?? "No workspace"}</p>
-          <p>{data.workspace?.owner ?? "No workspace"}</p>
-          <p>{data.workspace?.status ?? "No workspace"}</p>
-          <p>{data.workspace?.costs ?? "No workspace"}</p>
-          <h3 className="text-lg font-semibold text-tremor-content-strong dark:text-dark-tremor-content-strong">Account Created Successfully</h3>
-          <p className="mt-2 leading-6 text-tremor-default text-tremor-content dark:text-dark-tremor-content">
-            Your account has been created successfully. You can now login to your
-            account. For more information, please contact us.
-          </p>
-          <p>{data.workspace?.workspace ?? "No workspace"}</p>
-          <p>{data.workspace?.owner ?? "No workspace"}</p>
-          <p>{data.workspace?.status ?? "No workspace"}</p>
-          <p>{data.workspace?.costs ?? "No workspace"}</p>
-          <h3 className="text-lg font-semibold text-tremor-content-strong dark:text-dark-tremor-content-strong">Account Created Successfully</h3>
-          <p className="mt-2 leading-6 text-tremor-default text-tremor-content dark:text-dark-tremor-content">
-            Your account has been created successfully. You can now login to your
-            account. For more information, please contact us.
-          </p>
-          <p>{data.workspace?.workspace ?? "No workspace"}</p>
-          <p>{data.workspace?.owner ?? "No workspace"}</p>
-          <p>{data.workspace?.status ?? "No workspace"}</p>
-          <p>{data.workspace?.costs ?? "No workspace"}</p>
-          <h3 className="text-lg font-semibold text-tremor-content-strong dark:text-dark-tremor-content-strong">Account Created Successfully</h3>
-          <p className="mt-2 leading-6 text-tremor-default text-tremor-content dark:text-dark-tremor-content">
-            Your account has been created successfully. You can now login to your
-            account. For more information, please contact us.
-          </p>
-          <p>{data.workspace?.workspace ?? "No workspace"}</p>
-          <p>{data.workspace?.owner ?? "No workspace"}</p>
-          <p>{data.workspace?.status ?? "No workspace"}</p>
-          <p>{data.workspace?.costs ?? "No workspace"}</p>
-          
-          <div className='flex items-center justify-end gap-3'>
-            <Button className="mt-8 w-[100px]" onClick={() => handleCloseDialogState()}>
-              Edit!
-            </Button>
-            <Button className="mt-8 w-[100px]" color='red'>
-              Delete!
-            </Button>
-          </div>
-        </DialogPanel>
-      </Dialog>
+      <DialogPanelOperationRow operationData={data.tableOperationRow} isDialogOpen={data.isOpen} closeDialogFunction={handleCloseDialogState} />
     </>
   );
 }
