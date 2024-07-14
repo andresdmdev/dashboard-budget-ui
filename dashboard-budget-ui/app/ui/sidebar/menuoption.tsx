@@ -13,10 +13,10 @@ export default function MenuButton({ name, href } : {name: string, href: string 
   return (
       <Link
         href={href}
-        className={`flex flex-row gap-2 align-middle px-3 py-2 transition-colors rounded-md font-semibold text-secondary-100 cursor-pointer hover:bg-slate-700 hover:text-primary-100 target:bg-orange-600 
+        className={`flex flex-row gap-3 align-middle items-center px-3 py-2 transition-colors rounded-md font-semibold text-secondary-100 cursor-pointer hover:bg-slate-700 hover:text-primary-100 target:bg-orange-600 
           ${matchPathName ? "bg-slate-700 font-bold" : ""}`}
       >
-        <NextIcon className="w-6" />
+        <NextIcon className="w-6 text-3xl" />
         {name}
       </Link>
   )
