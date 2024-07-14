@@ -1,10 +1,10 @@
 "use client"
 
+import { FieldOperationData } from '@/app/lib/types';
 import { getFieldIconByName } from '@/app/lib/utils';
 import { BarList, Card } from '@tremor/react';
-import { IconType } from 'react-icons';
 
-export default function CategoryBars({ data }: { data: { name: string, value: number, icon?: IconType | undefined }[] }) {
+export default function CategoryBars({ data }: { data: FieldOperationData[] } ) {
 
   let formatIconByName = data.map(field => {
     if (!field.icon) {

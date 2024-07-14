@@ -1,3 +1,5 @@
+import { IconType } from "react-icons";
+
 export interface TableOperationColumns 
 {
   header: string,
@@ -9,28 +11,29 @@ export interface TableOperationColumns
 }
 
 export interface TableOperationFields {
-  workspace: string,
-  owner: string,
+  id: number,
+  date: string,
+  amount: string | number,
   status: string,
-  costs: number,
-  region: string,
-  capacity: number,
-  lastEdited: string,
-}
-
-export interface TableOperationFieldsDTO {
-  workspace: string,
-  owner: string,
-  status: string,
-  costs: string,
-  region: string,
-  capacity: string,
+  field: string,
+  paidDate: string,
+  quoteAmount: string | number,
+  quoteFee: string | number,
+  quoteNumber: string | number,
+  paidDestination: string,
+  paidMethod: string,
   lastEdited: string,
 }
 
 export interface TableOperation {
   columns: TableOperationColumns[],
-  fields: TableOperationFieldsDTO[] | TableOperationFields[],
+  fields: TableOperationFields[],
+}
+
+export interface FieldOperationData {
+  name: string,
+  value: number,
+  icon?: IconType
 }
 
 type categoryInfo = {

@@ -53,7 +53,12 @@ export default function OperationTable({
     getCoreRowModel: getCoreRowModel(),
     getSortedRowModel: getSortedRowModel(),
     initialState: {
-      sorting: [],
+      sorting: [
+        {
+          id: 'lastEdited',
+          desc: true,
+        }
+      ],
     },
   });
 
